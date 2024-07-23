@@ -1,0 +1,163 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "tileLv3.tmx",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "file.lastUsedOpenFilter": "All Files (*)",
+    "fileStates": {
+        "": {
+            "scaleInDock": 1.5
+        },
+        "#pipoya": {
+            "scaleInDock": 1
+        },
+        "room.tmx": {
+            "expandedObjectLayers": [
+                13
+            ],
+            "scale": 1.5,
+            "selectedLayer": 4,
+            "viewCenter": {
+                "x": 196,
+                "y": 159.66666666666666
+            }
+        },
+        "room.tmx#4_Bedroom_32x32": {
+            "scaleInDock": 0.75
+        },
+        "room.tmx#Carpet": {
+            "scaleInDock": 1
+        },
+        "room.tmx#pipoya": {
+            "scaleInDock": 1.5
+        },
+        "tileLv1.tmx": {
+            "scale": 0.5,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 2386,
+                "y": 477
+            }
+        },
+        "tileLv1.tmx#4_Bedroom_32x32": {
+            "scaleInDock": 0.75,
+            "scaleInEditor": 1
+        },
+        "tileLv1.tmx#Carpet": {
+            "scaleInDock": 1
+        },
+        "tileLv1.tmx#DeckardWalls": {
+            "scaleInDock": 1
+        },
+        "tileLv1.tmx#classroom": {
+            "scaleInDock": 0.75
+        },
+        "tileLv1.tmx#pipoya": {
+            "scaleInDock": 1
+        },
+        "tileLv2.tmx": {
+            "expandedGroupLayers": [
+                16
+            ],
+            "expandedObjectLayers": [
+                22
+            ],
+            "scale": 0.75,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": -103.33333333333331,
+                "y": 440.66666666666663
+            }
+        },
+        "tileLv2.tmx#Carpet": {
+            "scaleInDock": 1.5
+        },
+        "tileLv2.tmx#magecity": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tileLv2.tmx#pipoya": {
+            "scaleInDock": 1
+        },
+        "tileLv2.tmx#plant": {
+            "scaleInDock": 1
+        },
+        "tileLv2.tmx#plant2": {
+            "scaleInDock": 1
+        },
+        "tileLv2.tmx#spider": {
+            "scaleInDock": 1
+        },
+        "tileLv3.tmx": {
+            "expandedGroupLayers": [
+                23
+            ],
+            "expandedObjectLayers": [
+                14
+            ],
+            "scale": 0.75,
+            "selectedLayer": 6,
+            "viewCenter": {
+                "x": 595.3333333333333,
+                "y": 511.3333333333333
+            }
+        },
+        "tileLv3.tmx#Carpet": {
+            "scaleInDock": 1
+        },
+        "tileLv3.tmx#MC": {
+            "scaleInDock": 1
+        },
+        "tileLv3.tmx#pipoya": {
+            "scaleInDock": 1.5
+        },
+        "tileLv3.tmx#plant": {
+            "scaleInDock": 1
+        },
+        "tileTutorial-v2.tmx": {
+            "scale": 0.8431249999999999,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 577.0200148257969,
+                "y": 480.9488510007414
+            }
+        },
+        "tileTutorial-v2.tmx#Buildings32x32": {
+            "scaleInDock": 1
+        },
+        "tileTutorial-v2.tmx#Street32x32": {
+            "scaleInDock": 1
+        },
+        "tileTutorial-v2.tmx#pipoya": {
+            "scaleInDock": 1
+        },
+        "tileTutorial-v2.tmx#tuxmon-32x32": {
+            "scaleInDock": 1
+        }
+    },
+    "last.exportedFilePath": "C:/Users/steph/OneDrive/Documents/MA1/Tiled-cityMap/assets",
+    "last.imagePath": "C:/Users/steph/OneDrive/Documents/MA1/Tiled-cityMap/assets",
+    "map.height": 30,
+    "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
+    "map.lastUsedFormat": "tmx",
+    "map.layerDataFormat": null,
+    "openFiles": [
+        "room.tmx",
+        "tileLv2.tmx",
+        "tileLv3.tmx",
+        "tileLv1.tmx"
+    ],
+    "project": "tileLv2.tiled-project",
+    "recentFiles": [
+        "room.tmx",
+        "tileLv2.tmx",
+        "tileLv1.tmx",
+        "tileLv3.tmx",
+        "tileTutorial-v2.tmx"
+    ],
+    "tileset.embedInMap": true
+}
