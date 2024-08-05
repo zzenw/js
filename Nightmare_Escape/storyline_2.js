@@ -16,7 +16,7 @@ class storyline_2 extends Phaser.Scene {
     
       create() {
         this.scene.bringToTop("storyline_2")
-        console.log('*** storyline_1 scene');
+        // console.log('*** storyline_1 scene');
     
         // Add image and detect spacebar keypress
         this.add.image(0, 0, "storyline02IMG").setOrigin(0, 0);
@@ -26,7 +26,7 @@ class storyline_2 extends Phaser.Scene {
     
         // On spacebar event, call the world scene
         spaceDown.on("down", function () {
-          console.log("Jump to room scene");
+          // console.log("Jump to room scene");
     
           this.scene.start("gameControls");
         },

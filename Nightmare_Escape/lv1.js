@@ -24,7 +24,7 @@ class lv1 extends Phaser.Scene {
   } //end of preload
 
   create() {
-    console.log('*** lv1 scene');
+    // console.log('*** lv1 scene');
 
     // Create the map from main
     let map = this.make.tilemap({
@@ -86,7 +86,7 @@ class lv1 extends Phaser.Scene {
     //jump to room
     let cDown = this.input.keyboard.addKey('C');
     cDown.on('down', function () {
-      console.log("C pressed (lv1 game）");
+      // console.log("C pressed (lv1 game）");
       this.scene.start("lv2");
     }, this);
 
@@ -149,7 +149,7 @@ class lv1 extends Phaser.Scene {
       this.player.y > 47 &&
       this.player.y < 111
     ){
-      console.log("Go to lv2_intro function");
+      // console.log("Go to lv2_intro function");
       this.lv2_intro();
     }
 
@@ -157,7 +157,7 @@ class lv1 extends Phaser.Scene {
 
   // Function room1
   lv2_intro(player, tile) {
-    console.log("Function to jump to lv2_intro scene");
+    // console.log("Function to jump to lv2_intro scene");
     this.scene.start("lv2_intro",);
   }
 } //end of class lv1

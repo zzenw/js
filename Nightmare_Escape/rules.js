@@ -15,7 +15,7 @@ class rules extends Phaser.Scene {
     
     
       create() {
-        console.log('*** rules scene');
+        // console.log('*** rules scene');
     
         // Add image and detect spacebar keypress
         this.add.image(0, 0, "rulesIMG").setOrigin(0, 0);
@@ -25,7 +25,7 @@ class rules extends Phaser.Scene {
     
         // On spacebar event, call the world scene
         spaceDown.on("down", function () {
-          console.log("Jump to room scene");
+          // console.log("Jump to room scene");
     
           this.scene.start("room");
         },

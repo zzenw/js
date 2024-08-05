@@ -6,7 +6,8 @@
     physics: {
         default: 'arcade',
         arcade: {
-            debug: true
+            gravity: false,
+            debug: false
         }
     },
     scale: {

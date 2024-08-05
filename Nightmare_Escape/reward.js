@@ -12,7 +12,7 @@ class reward extends Phaser.Scene {
 
   create() {
     this.scene.bringToTop("reward")
-    console.log("*** reward scene");
+    // console.log("*** reward scene");
 
     window.music.setVolume(0);
     this.win_music = this.sound.add("win_music").setVolume(0.10);
@@ -27,7 +27,7 @@ class reward extends Phaser.Scene {
 
     // On spacebar event, call the world scene
     spaceDown.on("down", function () {
-      console.log("Jump to main scene");
+      // console.log("Jump to main scene");
 
       this.scene.start("main");
       this.win_music.stop();

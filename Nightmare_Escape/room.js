@@ -29,7 +29,7 @@ class room extends Phaser.Scene {
 
   create() {
     this.scene.bringToTop("room")
-    console.log("*** room scene");
+    // console.log("*** room scene");
 
     window.music.setVolume(0.09);
 
@@ -88,7 +88,7 @@ class room extends Phaser.Scene {
     //jump to lv1
     let bDown = this.input.keyboard.addKey('B');
     bDown.on('down', function () {
-      console.log("B pressed (room）");
+      // console.log("B pressed (room）");
       this.scene.start("lv1");
     }, this);
 
@@ -109,7 +109,7 @@ class room extends Phaser.Scene {
       this.player.y > 233 &&
       this.player.y < 297
     ) {
-      console.log("Go to lv1_intro function");
+      // console.log("Go to lv1_intro function");
       this.lv1_intro();
     }
 
@@ -132,7 +132,7 @@ class room extends Phaser.Scene {
   } //end of update
 
   lv1_intro(player, tile) {
-    console.log("function to jump to lv1_intro")
+    // console.log("function to jump to lv1_intro")
     this.scene.start("lv1_intro")
   }
 

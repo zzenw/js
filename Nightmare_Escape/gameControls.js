@@ -15,7 +15,7 @@ class gameControls extends Phaser.Scene {
     
     
       create() {
-        console.log('*** gameControls scene');
+        // console.log('*** gameControls scene');
     
         // Add image and detect spacebar keypress
         this.add.image(0, 0, "gameControlsIMG").setOrigin(0, 0);
@@ -25,7 +25,7 @@ class gameControls extends Phaser.Scene {
     
         // On spacebar event, call the world scene
         spaceDown.on("down", function () {
-          console.log("Jump to rules scene");
+          // console.log("Jump to rules scene");
     
           this.scene.start("rules");
         },

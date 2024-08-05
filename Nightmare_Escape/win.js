@@ -11,7 +11,7 @@ class win extends Phaser.Scene {
 
   create() {
     this.scene.bringToTop("win")
-    console.log("*** win scene");
+    // console.log("*** win scene");
 
     window.music.setVolume(0);
     this.win_music = this.sound.add("win_music").setVolume(0.10);
@@ -27,7 +27,7 @@ class win extends Phaser.Scene {
 
     // On spacebar event, call the world scene
     spaceDown.on("down", function () {
-      console.log("Jump to reward scene");
+      // console.log("Jump to reward scene");
       window.lifeIMG = 3;
       window.lightIMG = 1;
       window.sprayIMG = 0;

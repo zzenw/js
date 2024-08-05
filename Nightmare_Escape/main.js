@@ -16,7 +16,7 @@ class main extends Phaser.Scene {
     
       create() {
         this.scene.bringToTop("main")
-        console.log('*** main scene');
+        // console.log('*** main scene');
 
         window.music.setVolume(0.09);
     
@@ -28,7 +28,7 @@ class main extends Phaser.Scene {
     
         // On spacebar event, call the world scene
         enterDown.on("down", function () {
-          console.log("Jump to lv1 scene");
+          // console.log("Jump to lv1 scene");
         //   window.lifeIMG = 3;
         //   window.lightIMG = 0;
         //   window.weaponIMG = 0;

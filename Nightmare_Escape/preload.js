@@ -68,7 +68,7 @@ class preload extends Phaser.Scene {
 
   create() {
 
-    console.log('*** preload scene');
+    // console.log('*** preload scene');
 
     // Load in player
     this.anims.create({

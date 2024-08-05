@@ -31,7 +31,7 @@ class lv2 extends Phaser.Scene {
 
 
   create() {
-    console.log("*** lv2 scene");
+    // console.log("*** lv2 scene");
 
     // Create the map from main
     let map = this.make.tilemap({
@@ -247,7 +247,7 @@ class lv2 extends Phaser.Scene {
     //jump to lv3
     var dDown = this.input.keyboard.addKey('D');
     dDown.on('down', function () {
-      console.log("D pressed (lv2 game)");
+      // console.log("D pressed (lv2 game)");
       this.scene.start("lv3");
     }, this);
 
@@ -319,13 +319,13 @@ class lv2 extends Phaser.Scene {
 
   // Function room1
   lv3_intro(player, tile) {
-    console.log("Function to jump to lv3_intro scene");
+    // console.log("Function to jump to lv3_intro scene");
     this.scene.start("lv3_intro",);
   }
 
   attackLeft() {
 
-    console.log("attack left");
+    // console.log("attack left");
     if (window.sprayIMG > 0) {
 
       this.ShootSnd = this.sound.add("shootAUD").setVolume(0.5);
@@ -345,7 +345,7 @@ class lv2 extends Phaser.Scene {
 
   attackRight() {
 
-    console.log("attack right");
+    // console.log("attack right");
     if (window.sprayIMG > 0) {
 
       this.ShootSnd = this.sound.add("shootAUD").setVolume(0.5);

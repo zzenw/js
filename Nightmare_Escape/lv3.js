@@ -30,7 +30,7 @@ class lv3 extends Phaser.Scene {
   } //end of preload
 
   create() {
-    console.log("*** lv3 scene");
+    // console.log("*** lv3 scene");
 
     // Create the map from main
     let map = this.make.tilemap({
@@ -201,13 +201,13 @@ class lv3 extends Phaser.Scene {
 
    // Function room1
    win(player, tile) {
-    console.log("Function to jump to win scene");
+    // console.log("Function to jump to win scene");
     this.scene.start("win",);
   }
 
   attackLeft() {
 
-    console.log("attack left");
+    // console.log("attack left");
     if (window.weaponIMG > 0) {
 
       this.ShootSnd = this.sound.add("shootAUD").setVolume(0.5);
@@ -228,7 +228,7 @@ class lv3 extends Phaser.Scene {
 
   attackRight() {
 
-    console.log("attack right");
+    // console.log("attack right");
     if (window.weaponIMG > 0) {
 
       this.ShootSnd = this.sound.add("shootAUD").setVolume(0.5);

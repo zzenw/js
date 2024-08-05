@@ -16,7 +16,7 @@ class lv2_intro extends Phaser.Scene {
     
       create() {
         this.scene.bringToTop("lv2_intro")
-        console.log('*** lv2_intro scene');
+        // console.log('*** lv2_intro scene');
     
         // Add image and detect spacebar keypress
         this.add.image(0, 0, "lv2_introIMG").setOrigin(0, 0);
@@ -26,7 +26,7 @@ class lv2_intro extends Phaser.Scene {
     
         // On spacebar event, call the world scene
         spaceDown.on("down", function () {
-          console.log("Jump to lv2 scene");
+          // console.log("Jump to lv2 scene");
     
           this.scene.start("lv2");
         },
