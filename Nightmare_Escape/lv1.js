@@ -34,7 +34,7 @@ class lv1 extends Phaser.Scene {
     //black bar
     var rect = new Phaser.Geom.Rectangle(0, 800, 600, 800);
     var graphics = this.add.graphics({ fillStyle: { color: '#F2B600' } });
-    graphics.fillRectShape(rect).setScrollFactor('0').setAlpha(0.6);
+    graphics.fillRectShape(rect).setScrollFactor('0').setAlpha(0.5);
 
     // Load the game tiles
     let pipoyaTiles = map.addTilesetImage("pipoya", "pipoyaIMG");
@@ -70,8 +70,8 @@ class lv1 extends Phaser.Scene {
     this.player = this.physics.add.sprite(start.x, start.y, "zen");
     this.player.setCollideWorldBounds(true)
 
-    // debug player
-    window.player = this.player
+    // // debug player
+    // window.player = this.player
 
     // create the arrow keys
     this.cursors = this.input.keyboard.createCursorKeys();
@@ -105,11 +105,26 @@ class lv1 extends Phaser.Scene {
     // Call globalFunction globalCollectLight on overlap
     this.physics.add.overlap(this.player, [this.light1, this.light2, this.light3], globalCollectLight, null, this);
 
+    this.groundLayer.setPipeline("Light2D").setAlpha(0.5);
+    this.wallLayer.setPipeline("Light2D").setAlpha(0.5);
+    
+    this.lights.enable();
+    this.lights.setAmbientColor(0x080808);
+
+    this.spotlight = this.lights
+    .addLight(this.player.x, this.player.y)
+    .setRadius(5, 5)
+    .setIntensity(5);
 
   } //end of create
 
   update() {
     let speed = 200;
+
+    this.spotlight.x = this.player.x + 8;
+    this.spotlight.y = this.player.y - 5;
+
+    this.spotlight.setRadius(150*window.lightIMG,150*window.lightIMG)
 
     if (this.cursors.left.isDown) {
       this.player.body.setVelocityX(-speed);
@@ -128,6 +143,21 @@ class lv1 extends Phaser.Scene {
       this.player.body.setVelocity(0, 0);
     }
 
+    if (
+      this.player.x > 1024 &&
+      this.player.x < 1088 &&
+      this.player.y > 47 &&
+      this.player.y < 111
+    ){
+      console.log("Go to lv2_intro function");
+      this.lv2_intro();
+    }
+
   } //end of update
 
+  // Function room1
+  lv2_intro(player, tile) {
+    console.log("Function to jump to lv2_intro scene");
+    this.scene.start("lv2_intro",);
+  }
 } //end of class lv1

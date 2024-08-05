@@ -39,7 +39,9 @@ function globalHitSpider(player, item) {
 
     // deduct heart
     window.lifeIMG--;
-    item.disableBody(true, true);
+    player.x=0
+    player.y=0
+    //item.disableBody(true, true);
 
     // Call globalFunctions.js updateInventory
     updateInventory.call(this)
@@ -63,7 +65,9 @@ function globalHitClown(player, item) {
 
     // deduct heart
     window.lifeIMG--;
-    item.disableBody(true, true);
+    player.x=item.x-100
+    player.y=item.y-100
+    // item.disableBody(true, true);
 
     // Call globalFunctions.js updateInventory
     updateInventory.call(this)
@@ -83,38 +87,52 @@ function globalShootSpider(player, item) {
     this.SpiderSnd.play()
 
     // deduct heart
-    window.lifeIMG--;
     item.disableBody(true, true);
+
+    window.spider++
 
     // Call globalFunctions.js updateInventory
     updateInventory.call(this)
-
-    // if (window.lifeIMG == 0) {
-    //     console.log("*** player unlock lv3");
-    //     this.scene.start("lv3");
-    //     //this.loselifeSnd.play();
-    // }
 }
 
-function globalShootClown(player, item) {
-    console.log("*** bullet overlap spider");
+function globalShootClown1(bullet, item) {
+    console.log("*** bullet overlap clown1",window.clown1);
 
     this.ClownSnd = this.sound.add("clownAUD").setVolume(0.5);
     // play the sound
     this.ClownSnd.play()
 
+    bullet.disableBody(true, true);
+
     // deduct heart
-    window.lifeIMG--;
-    item.disableBody(true, true);
+    window.clown1--
+    if (window.clown1 < 1) {
+        item.disableBody(true, true);
+    }
 
     // Call globalFunctions.js updateInventory
     updateInventory.call(this)
 
-    // if (window.lifeIMG == 0) {
-    //     console.log("*** player unlock lv3");
-    //     this.scene.start("lv3");
-    //     //this.loselifeSnd.play();
-    // }
+}
+
+function globalShootClown2(bullet, item) {
+    console.log("*** bullet overlap clown2",window.clown2);
+
+    this.ClownSnd = this.sound.add("clownAUD").setVolume(0.5);
+    // play the sound
+    this.ClownSnd.play()
+
+    bullet.disableBody(true, true);
+
+    // deduct heart
+    window.clown2--
+    if (window.clown2 < 1) {
+        item.disableBody(true, true);
+    }
+
+    // Call globalFunctions.js updateInventory
+    updateInventory.call(this)
+
 }
 
 ////////////////////////////////////////////////////////
@@ -155,6 +173,7 @@ function globalCollectSpray(player, item) {
     this.collectItemSnd = this.sound.add("collectAUD").setVolume(0.5);
     // play the sound
     this.collectItemSnd.play()
+
 
     // increase key count
     window.sprayIMG++;
