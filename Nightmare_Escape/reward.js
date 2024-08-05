@@ -15,7 +15,7 @@ class reward extends Phaser.Scene {
     // console.log("*** reward scene");
 
     window.music.setVolume(0);
-    this.win_music = this.sound.add("win_music").setVolume(0.10);
+    this.win_music = this.sound.add("win_music").setVolume(0.3);
     // start the background music
     this.win_music.play();
 
@@ -34,7 +34,7 @@ class reward extends Phaser.Scene {
     },
       this
     );
-  }// end of gameOver
+  }// end of create
 
 } // end of gameOver
 

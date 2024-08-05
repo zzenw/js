@@ -215,7 +215,7 @@ class preload extends Phaser.Scene {
 
 
     // turn on loop, adjust the volume
-    window.music = this.sound.add("bg_music", { loop: true }).setVolume(0.09);
+    window.music = this.sound.add("bg_music", { loop: true }).setVolume(0.5);
     // start the background music
     window.music.play();
 

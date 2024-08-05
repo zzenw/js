@@ -14,7 +14,7 @@ class gameOver extends Phaser.Scene {
     // console.log("*** gameOver scene");
 
     window.music.setVolume(0);
-    this.lose_music = this.sound.add("lose_music").setVolume(0.09);
+    this.lose_music = this.sound.add("lose_music").setVolume(0.3);
     // start the background music
     this.lose_music.play();
 

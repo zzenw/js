@@ -27,26 +27,26 @@ class showInventory extends Phaser.Scene {
         this.scene.bringToTop("showInventory");
 
         //black bar
-        var rect = new Phaser.Geom.Rectangle(0, 0, 970, 65);
+        var rect = new Phaser.Geom.Rectangle(0, 0, 970, 55);
         var graphics = this.add.graphics({ fillStyle: { color: '#F2B600' } });
         graphics.fillRectShape(rect).setScrollFactor('0').setAlpha(0.6);
 
         // Setup heart but visible to false
-        this.lifeIMG1 = this.add.image(100, 41, 'lifeIMG').setScrollFactor(0).setVisible(false).setScale(1);
-        this.lifeIMG2 = this.add.image(150, 41, 'lifeIMG').setScrollFactor(0).setVisible(false).setScale(1);
-        this.lifeIMG3 = this.add.image(200, 41, 'lifeIMG').setScrollFactor(0).setVisible(false).setScale(1);
+        this.lifeIMG1 = this.add.image(100, 36, 'lifeIMG').setScrollFactor(0).setVisible(false).setScale(1);
+        this.lifeIMG2 = this.add.image(150, 36, 'lifeIMG').setScrollFactor(0).setVisible(false).setScale(1);
+        this.lifeIMG3 = this.add.image(200, 36, 'lifeIMG').setScrollFactor(0).setVisible(false).setScale(1);
 
-        this.lightIMG = this.add.image(670, 39, 'lightIMG').setScrollFactor(0).setVisible(true);
-        this.sprayIMG = this.add.image(770, 39, 'sprayIMG').setScrollFactor(0).setVisible(true);
-        this.weaponIMG = this.add.image(870, 39, 'weaponIMG').setScrollFactor(0).setVisible(true);
+        this.lightIMG = this.add.image(670, 30, 'lightIMG').setScrollFactor(0).setVisible(true);
+        this.sprayIMG = this.add.image(770, 30, 'sprayIMG').setScrollFactor(0).setVisible(true);
+        this.weaponIMG = this.add.image(870, 30, 'weaponIMG').setScrollFactor(0).setVisible(true).setScale(1.2);
 
         // Recv an event, call the method
         this.events.on('inventory', this.updateScreen, this)
 
         //Setup key
-        this.lightIMGNum = this.add.text(700, 23, window.lightIMG, { font: '25px AnyTakers-Regular', fill: '#FFFFFF' }).setScrollFactor(0);
-        this.sprayIMGNum = this.add.text(800, 23, window.sprayIMG, { font: '25px AnyTakers-Regular', fill: '#FFFFFF' }).setScrollFactor(0);
-        this.weaponIMGNum = this.add.text(900, 23, window.weaponIMG, { font: '25px AnyTakers-Regular', fill: '#FFFFFF' }).setScrollFactor(0);
+        this.lightIMGNum = this.add.text(700, 13, window.lightIMG, { font: '25px AnyTakers-Regular', fill: '#FFFFFF' }).setScrollFactor(0);
+        this.sprayIMGNum = this.add.text(800, 13, window.sprayIMG, { font: '25px AnyTakers-Regular', fill: '#FFFFFF' }).setScrollFactor(0);
+        this.weaponIMGNum = this.add.text(900, 13, window.weaponIMG, { font: '25px AnyTakers-Regular', fill: '#FFFFFF' }).setScrollFactor(0);
 
     } //end of create
 

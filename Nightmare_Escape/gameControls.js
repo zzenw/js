@@ -15,6 +15,7 @@ class gameControls extends Phaser.Scene {
     
     
       create() {
+        this.scene.bringToTop("gameControls")
         // console.log('*** gameControls scene');
     
         // Add image and detect spacebar keypress

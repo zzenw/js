@@ -163,6 +163,9 @@ function globalCollectLife(player, item) {
 
     // increase key count
     window.lifeIMG++;
+    if (window.lifeIMG > 3){
+      window.lifeIMG=3
+    }
     item.disableBody(true, true);
     updateInventory.call(this)
 }

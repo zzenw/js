@@ -15,6 +15,7 @@ class rules extends Phaser.Scene {
     
     
       create() {
+        this.scene.bringToTop("rules")
         // console.log('*** rules scene');
     
         // Add image and detect spacebar keypress
