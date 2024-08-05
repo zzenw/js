@@ -31,7 +31,6 @@ class reward extends Phaser.Scene {
 
       this.scene.start("main");
       this.win_music.stop();
-      this.scene.start("reward");
     },
       this
     );
