@@ -57,18 +57,18 @@ class preload extends Phaser.Scene {
     // audio
     this.load.audio("bg_music", "assets/Bg-music.mp3");
     this.load.audio("collectAUD","assets/CollectAUD.mp3");
-    this.load.audio("shootAUD","assets/WeaponAUD.mp3");
     this.load.audio("clownAUD","assets/Ouch-Man.mp3");
     this.load.audio("spiderAUD","assets/Ouch-Spider.mp3");
     this.load.audio("hurtAUD","assets/Ouch-MC.mp3");
-    
+    this.load.audio("win_music","assets/Win-HereComesTheSun_Kalimba.mp3");
+    this.load.audio("lose_music","assets/Lose-RequiemForADream_Kalimba.mp3");
 
   } //end of preload
 
 
   create() {
 
-    console.log('*** preload scene');
+    // console.log('*** preload scene');
 
     // Load in player
     this.anims.create({
@@ -215,22 +215,11 @@ class preload extends Phaser.Scene {
 
 
     // turn on loop, adjust the volume
-    this.music = this.sound.add("bg_music", { loop: true }).setVolume(0.07);
+    window.music = this.sound.add("bg_music", { loop: true }).setVolume(0.09);
     // start the background music
-    this.music.play();
+    window.music.play();
 
     this.scene.start("main")
-
-//     this.player = this.physics.add.sprite(this.playerPos.x, this.playerPos.y, "down");
-
-//     let playerPos={}
-//     playerPos.x=330
-//     playerPos.y=275
-// this.scene.start(
-//     "room",
-//     {player:playerPos}
-//   );
-
   
 
   } //end of create

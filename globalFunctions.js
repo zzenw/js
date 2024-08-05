@@ -5,7 +5,7 @@
 // 
 ///////////////////////////////////////////////////////
 function updateInventory() {
-    console.log("*** updateInventory()")
+    // console.log("*** updateInventory()")
     // Emit events showInventory
     this.inventory = {}
     this.inventory.lightIMG = window.lightIMG
@@ -14,7 +14,7 @@ function updateInventory() {
     this.inventory.weaponIMG = window.weaponIMG
     this.inventory.bubbleIMG = window.bulletIMG
 
-    console.log('*** updateInventory() Emit event', this.inventory)
+    // console.log('*** updateInventory() Emit event', this.inventory)
     this.invEvent = (event, data) => {
         this.scene.get('showInventory').events.emit(event, data);
     }
@@ -28,7 +28,7 @@ function updateInventory() {
 // 
 ///////////////////////////////////////////////////////
 function globalHitSpider(player, item) {
-    console.log("*** player overlap spider");
+    // console.log("*** player overlap spider");
 
     // Shake screen
     this.cameras.main.shake(100);
@@ -39,20 +39,22 @@ function globalHitSpider(player, item) {
 
     // deduct heart
     window.lifeIMG--;
-    item.disableBody(true, true);
+    player.x=0
+    player.y=0
+    //item.disableBody(true, true);
 
     // Call globalFunctions.js updateInventory
     updateInventory.call(this)
 
     if (window.lifeIMG == 0) {
-        console.log("*** player gameOver");
+        // console.log("*** player gameOver");
         this.scene.start("gameOver");
         //this.loselifeSnd.play();
     }
 }
 
 function globalHitClown(player, item) {
-    console.log("*** player overlap clown");
+    // console.log("*** player overlap clown");
 
     // Shake screen
     this.cameras.main.shake(100);
@@ -63,58 +65,74 @@ function globalHitClown(player, item) {
 
     // deduct heart
     window.lifeIMG--;
-    item.disableBody(true, true);
+    player.x=item.x-100
+    player.y=item.y-100
+    // item.disableBody(true, true);
 
     // Call globalFunctions.js updateInventory
     updateInventory.call(this)
 
     if (window.lifeIMG == 0) {
-        console.log("*** player gameOver");
+        // console.log("*** player gameOver");
         this.scene.start("gameOver");
         //this.loselifeSnd.play();
     }
 }
 
 function globalShootSpider(player, item) {
-    console.log("*** bullet overlap spider");
+    // console.log("*** bullet overlap spider");
 
     this.SpiderSnd = this.sound.add("spiderAUD").setVolume(0.5);
     // play the sound
     this.SpiderSnd.play()
 
     // deduct heart
-    window.lifeIMG--;
     item.disableBody(true, true);
+
+    window.spider++
 
     // Call globalFunctions.js updateInventory
     updateInventory.call(this)
-
-    // if (window.lifeIMG == 0) {
-    //     console.log("*** player unlock lv3");
-    //     this.scene.start("lv3");
-    //     //this.loselifeSnd.play();
-    // }
 }
 
-function globalShootClown(player, item) {
-    console.log("*** bullet overlap spider");
+function globalShootClown1(bullet, item) {
+    // console.log("*** bullet overlap clown1",window.clown1);
 
     this.ClownSnd = this.sound.add("clownAUD").setVolume(0.5);
     // play the sound
     this.ClownSnd.play()
 
+    bullet.disableBody(true, true);
+
     // deduct heart
-    window.lifeIMG--;
-    item.disableBody(true, true);
+    window.clown1--
+    if (window.clown1 < 1) {
+        item.disableBody(true, true);
+    }
 
     // Call globalFunctions.js updateInventory
     updateInventory.call(this)
 
-    // if (window.lifeIMG == 0) {
-    //     console.log("*** player unlock lv3");
-    //     this.scene.start("lv3");
-    //     //this.loselifeSnd.play();
-    // }
+}
+
+function globalShootClown2(bullet, item) {
+    // console.log("*** bullet overlap clown2",window.clown2);
+
+    this.ClownSnd = this.sound.add("clownAUD").setVolume(0.5);
+    // play the sound
+    this.ClownSnd.play()
+
+    bullet.disableBody(true, true);
+
+    // deduct heart
+    window.clown2--
+    if (window.clown2 < 1) {
+        item.disableBody(true, true);
+    }
+
+    // Call globalFunctions.js updateInventory
+    updateInventory.call(this)
+
 }
 
 ////////////////////////////////////////////////////////
@@ -124,7 +142,7 @@ function globalShootClown(player, item) {
 // 
 /////////////////////////////////////////////////////// 
 function globalCollectLight(player, item) {
-    console.log("*** player overlap light");
+    // console.log("*** player overlap light");
 
     this.collectItemSnd = this.sound.add("collectAUD").setVolume(0.5);
     // play the sound
@@ -137,7 +155,7 @@ function globalCollectLight(player, item) {
 }
 
 function globalCollectLife(player, item) {
-    console.log("*** player overlap life");
+    // console.log("*** player overlap life");
 
     this.collectItemSnd = this.sound.add("collectAUD").setVolume(0.5);
     // play the sound
@@ -150,11 +168,12 @@ function globalCollectLife(player, item) {
 }
 
 function globalCollectSpray(player, item) {
-    console.log("*** player overlap spray");
+    // console.log("*** player overlap spray");
 
     this.collectItemSnd = this.sound.add("collectAUD").setVolume(0.5);
     // play the sound
     this.collectItemSnd.play()
+
 
     // increase key count
     window.sprayIMG++;
@@ -163,7 +182,7 @@ function globalCollectSpray(player, item) {
 }
 
 function globalCollectWeapon(player, item) {
-    console.log("*** player overlap weapon");
+    // console.log("*** player overlap weapon");
 
     this.collectItemSnd = this.sound.add("collectAUD").setVolume(0.5);
     // play the sound

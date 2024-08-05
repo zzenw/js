@@ -30,7 +30,7 @@ class lv3 extends Phaser.Scene {
   } //end of preload
 
   create() {
-    console.log("*** lv3 scene");
+    // console.log("*** lv3 scene");
 
     // Create the map from main
     let map = this.make.tilemap({
@@ -87,8 +87,8 @@ class lv3 extends Phaser.Scene {
     this.player.setCollideWorldBounds(true)
 
 
-    // debug player
-    window.player = this.player
+    // // debug player
+    // window.player = this.player
 
     //shooting
     this.bullet = this.physics.add.sprite(this.player.x, this.player.y, "bulletIMG")
@@ -114,11 +114,7 @@ class lv3 extends Phaser.Scene {
       this
     );
 
-    // // Add any text to the game
-    // this.add.text(10, 10, "Add any text here", {
-    //   font: "30px Courier",
-    //   fill: "#00FFFF",
-    // });
+
 
     // create the arrow keys
     this.cursors = this.input.keyboard.createCursorKeys();
@@ -162,8 +158,14 @@ class lv3 extends Phaser.Scene {
     this.physics.add.overlap(this.player, [this.weapon], globalCollectWeapon, null, this);
     this.physics.add.overlap(this.player, [this.clown1, this.clown2], globalHitClown, null, this);
     this.physics.add.overlap(this.player, [this.life1, this.life2], globalCollectLife, null, this);
-    this.physics.add.overlap(this.bullet, [this.clown1,this.clown2], globalShootClown, null, this);
+    this.physics.add.overlap(this.bullet, [this.clown1], globalShootClown1, null, this);
+    this.physics.add.overlap(this.bullet, [this.clown2], globalShootClown2, null, this);
 
+    // Create the tint overlay with the specified fillStyle
+    this.tintOverlay = this.add.graphics({ x: 0, y: 0 });
+    this.tintOverlay.fillStyle(0x120016, 0.5); // Set color to black and alpha to 0.3 (30% opacity)
+    this.tintOverlay.fillRect(0, 0, this.cameras.main.width, this.cameras.main.height);
+    this.tintOverlay.setScrollFactor(0); // Make sure it stays in place with the cam
 
   } // end of create
 
@@ -174,6 +176,10 @@ class lv3 extends Phaser.Scene {
     this.physics.moveToObject(this.clown2, this.player, 500, 1500);
 
     let speed = 200;
+
+    if (window.clown1 ==0 && window.clown2== 0) {
+      this.win()
+    }
 
     if (this.cursors.left.isDown) {
       this.player.body.setVelocityX(-speed);
@@ -193,41 +199,53 @@ class lv3 extends Phaser.Scene {
     }
   } // end of update
 
+   // Function room1
+   win(player, tile) {
+    // console.log("Function to jump to win scene");
+    this.scene.start("win",);
+  }
+
   attackLeft() {
-    
-    console.log("attack left");
 
-    this.bullet.x = this.player.x;
-    this.bullet.y = this.player.y;
+    // console.log("attack left");
+    if (window.weaponIMG > 0) {
 
-    this.bullet.setVisible(true);
-    this.bullet.body.setEnable(true);
+      this.ShootSnd = this.sound.add("shootAUD").setVolume(0.5);
+      // play the sound
+      this.ShootSnd.play()
 
-	  // speed of the bullet
-    this.bullet.body.setVelocityX(-500);
+
+      this.bullet.x = this.player.x;
+      this.bullet.y = this.player.y;
+
+      this.bullet.setVisible(true);
+      this.bullet.body.setEnable(true);
+
+      // speed of the bullet
+      this.bullet.body.setVelocityX(-500);
+    }
   }
 
   attackRight() {
-    
-    console.log("attack right");
 
-    this.bullet.x = this.player.x;
-    this.bullet.y = this.player.y;
+    // console.log("attack right");
+    if (window.weaponIMG > 0) {
 
-    this.bullet.setVisible(true);
-    this.bullet.body.setEnable(true);
+      this.ShootSnd = this.sound.add("shootAUD").setVolume(0.5);
+      // play the sound
+      this.ShootSnd.play()
 
-	  // speed of the bullet
-    this.bullet.body.setVelocityX(500);
+
+      this.bullet.x = this.player.x;
+      this.bullet.y = this.player.y;
+
+      this.bullet.setVisible(true);
+      this.bullet.body.setEnable(true);
+
+      // speed of the bullet
+      this.bullet.body.setVelocityX(500);
+    }
   }
 
-  // hitClown(player, enemy) {
-  //   console.log("Player hit clown");
-  //   // shake screen
-  //   this.cameras.main.shake(300);
-
-  //   // disable enemy body
-  //   enemy.disableBody(true, true);
-  // }
 
 } // end of class lv3

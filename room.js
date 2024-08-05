@@ -28,15 +28,15 @@ class room extends Phaser.Scene {
   } //end of preload
 
   create() {
-    console.log("*** room scene");
+    this.scene.bringToTop("room")
+    // console.log("*** room scene");
 
+    window.music.setVolume(0.09);
 
     // Create the map from main
     let map = this.make.tilemap({
       key: "room",
     });
-
-    
 
     // Load the game tiles
     let carpetTiles = map.addTilesetImage("Carpet", "CarpetIMG");
@@ -63,8 +63,10 @@ class room extends Phaser.Scene {
     this.player = this.physics.add.sprite(start.x, start.y, "zen");
     this.player.setCollideWorldBounds(true)
 
-    // debug player
-    window.player = this.player
+    this.player.body.setSize(this.player.width*0.6,this.player.height*0.6)
+
+    // // debug player
+    // window.player = this.player
 
     // create the arrow keys
     this.cursors = this.input.keyboard.createCursorKeys();
@@ -86,14 +88,30 @@ class room extends Phaser.Scene {
     //jump to lv1
     let bDown = this.input.keyboard.addKey('B');
     bDown.on('down', function () {
-      console.log("B pressed (room）");
+      // console.log("B pressed (room）");
       this.scene.start("lv1");
     }, this);
+
+    // Create the tint overlay with the specified fillStyle
+    this.tintOverlay = this.add.graphics({ x: 0, y: 0 });
+    this.tintOverlay.fillStyle(0x120016  , 0.4); // Set color to black and alpha to 0.3 (30% opacity)
+    this.tintOverlay.fillRect(0, 0, this.cameras.main.width, this.cameras.main.height);
+    this.tintOverlay.setScrollFactor(0); // Make sure it stays in place with the cam
 
   } //end of create
 
   update() {
     let speed = 200;
+
+    if (
+      this.player.x > 288 &&
+      this.player.x < 352 &&
+      this.player.y > 233 &&
+      this.player.y < 297
+    ) {
+      // console.log("Go to lv1_intro function");
+      this.lv1_intro();
+    }
 
     if (this.cursors.left.isDown) {
       this.player.body.setVelocityX(-speed);
@@ -113,13 +131,9 @@ class room extends Phaser.Scene {
     }
   } //end of update
 
-  // // Function to jump to worldmap
-  // preload(player, tile) {
-  //   console.log("preload function");
-  //   let playerPos = {}
-  //   playerPos.x = 320
-  //   playerPos.y = 285
-  //   this.scene.start("preload", { player: playerPos });
-  // }
+  lv1_intro(player, tile) {
+    // console.log("function to jump to lv1_intro")
+    this.scene.start("lv1_intro")
+  }
 
 } //end of class room

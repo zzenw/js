@@ -23,12 +23,15 @@ class lv2 extends Phaser.Scene {
     this.load.image("sprayIMG", "assets/sprayLv2.png");
     this.load.image("lifeIMG", "assets/lifespan.png");
     this.load.image("bulletIMG", "assets/bubbleLv2.png");
+
     
+    this.load.audio("shootAUD","assets/WeaponAUD.mp3");
+
   } //end of preload
 
 
   create() {
-    console.log("*** lv2 scene");
+    // console.log("*** lv2 scene");
 
     // Create the map from main
     let map = this.make.tilemap({
@@ -56,13 +59,14 @@ class lv2 extends Phaser.Scene {
 
     let spider1 = map.findObject("ObjectLayer", (obj) => obj.name === "spider1");
     this.spider1 = this.physics.add.sprite(spider1.x, spider1.y, "spiderLv2IMG")
+    this.spider1.body.setSize(this.spider1.width*0.6,this.spider1.height*0.6)
     // spider1 anim
     this.tweens.add({
       targets: this.spider1,
       y: 180,
       flipY: false,
       yoyo: true,
-      duration: 1200,
+      duration: 1500,
       repeat: -1,
 
       onYoyo: () => {
@@ -78,13 +82,14 @@ class lv2 extends Phaser.Scene {
 
     let spider2 = map.findObject("ObjectLayer", (obj) => obj.name === "spider2");
     this.spider2 = this.physics.add.sprite(spider2.x, spider2.y, "spiderLv2IMG")
+    this.spider2.body.setSize(this.spider2.width*0.6,this.spider2.height*0.6)
     // spider1 anim
     this.tweens.add({
       targets: this.spider2,
       y: 520,
       flipY: false,
       yoyo: true,
-      duration: 2000,
+      duration: 3500,
       repeat: -1,
 
       onYoyo: () => {
@@ -98,6 +103,7 @@ class lv2 extends Phaser.Scene {
 
     let spider3 = map.findObject("ObjectLayer", (obj) => obj.name === "spider3");
     this.spider3 = this.physics.add.sprite(spider3.x, spider3.y, "spiderLv2IMG").play("spiderLv2IMG-left")
+    this.spider3.body.setSize(this.spider3.width*0.6,this.spider3.height*0.6)
     this.tweens.add({
       targets: this.spider3,
       x: 500,
@@ -109,6 +115,7 @@ class lv2 extends Phaser.Scene {
 
     let spider4 = map.findObject("ObjectLayer", (obj) => obj.name === "spider4");
     this.spider4 = this.physics.add.sprite(spider4.x, spider4.y, "spiderLv2IMG")
+    this.spider4.body.setSize(this.spider4.width*0.6,this.spider4.height*0.6)
     this.tweens.add({
       targets: this.spider4,
       y: 185,
@@ -128,6 +135,7 @@ class lv2 extends Phaser.Scene {
 
     let spider5 = map.findObject("ObjectLayer", (obj) => obj.name === "spider5");
     this.spider5 = this.physics.add.sprite(spider5.x, spider5.y, "spiderLv2IMG").play("spiderLv2IMG-left")
+    this.spider5.body.setSize(this.spider5.width*0.6,this.spider5.height*0.6)
     this.tweens.add({
       targets: this.spider5,
       x: 1110,
@@ -139,6 +147,7 @@ class lv2 extends Phaser.Scene {
 
     let spider6 = map.findObject("ObjectLayer", (obj) => obj.name === "spider6");
     this.spider6 = this.physics.add.sprite(spider6.x, spider6.y, "spiderLv2IMG")
+    this.spider6.body.setSize(this.spider6.width*0.6,this.spider6.height*0.6)
     this.tweens.add({
       targets: this.spider6,
       y: 630,
@@ -159,6 +168,7 @@ class lv2 extends Phaser.Scene {
 
     let spider7 = map.findObject("ObjectLayer", (obj) => obj.name === "spider7");
     this.spider7 = this.physics.add.sprite(spider7.x, spider7.y, "spiderLv2IMG")
+    this.spider7.body.setSize(this.spider7.width*0.6,this.spider7.height*0.6)
     this.tweens.add({
       targets: this.spider7,
       y: 630,
@@ -183,8 +193,8 @@ class lv2 extends Phaser.Scene {
     this.life1 = this.physics.add.sprite(life1.x, life1.y, "lifeIMG").play("lifeAnim")
     this.life2 = this.physics.add.sprite(life2.x, life2.y, "lifeIMG").play("lifeAnim")
 
-    
-    
+
+
     let start = map.findObject("ObjectLayer", (obj) => obj.name === "start");
     // zen is the alias in preload 
     this.player = this.physics.add.sprite(start.x, start.y, "zen");
@@ -237,7 +247,7 @@ class lv2 extends Phaser.Scene {
     //jump to lv3
     var dDown = this.input.keyboard.addKey('D');
     dDown.on('down', function () {
-      console.log("D pressed (lv2 game)");
+      // console.log("D pressed (lv2 game)");
       this.scene.start("lv3");
     }, this);
 
@@ -256,18 +266,37 @@ class lv2 extends Phaser.Scene {
     // start another scene in parallel
     this.scene.launch("showInventory");
 
-    // Call globalFunction globalHitLifeon overlap
+    // Call globalFunction globalHitLife on overlap
     this.physics.add.overlap(this.player, [this.life1, this.life2], globalCollectLife, null, this);
     this.physics.add.overlap(this.player, [this.spray], globalCollectSpray, null, this);
     this.physics.add.overlap(this.bullet, [this.spider1, this.spider2, this.spider3, this.spider4,
-      this.spider5, this.spider6, this.spider7], globalShootSpider, null, this);
+    this.spider5, this.spider6, this.spider7], globalShootSpider, null, this);
 
+    // Create the tint overlay with the specified fillStyle
+    this.tintOverlay = this.add.graphics({ x: 0, y: 0 });
+    this.tintOverlay.fillStyle(0x120016, 0.5); // Set color to black and alpha to 0.3 (30% opacity)
+    this.tintOverlay.fillRect(0, 0, this.cameras.main.width, this.cameras.main.height);
+    this.tintOverlay.setScrollFactor(0); // Make sure it stays in place with the cam
 
   } //end of create 
 
 
   update() {
     let speed = 200;
+
+    // if (
+    //   this.player.x > 608 &&
+    //   this.player.x < 672 &&
+    //   this.player.y > 832 &&
+    //   this.player.y < 896
+    // ){
+    //   console.log("Go to lv3_intro function");
+    //   this.lv3_intro();
+    // }
+
+    if (window.spider > 6) {
+      this.lv3_intro()
+    }
 
     if (this.cursors.left.isDown) {
       this.player.body.setVelocityX(-speed);
@@ -288,32 +317,50 @@ class lv2 extends Phaser.Scene {
 
   } //end of update
 
+  // Function room1
+  lv3_intro(player, tile) {
+    // console.log("Function to jump to lv3_intro scene");
+    this.scene.start("lv3_intro",);
+  }
+
   attackLeft() {
-    
-    console.log("attack left");
 
-    this.bullet.x = this.player.x;
-    this.bullet.y = this.player.y;
+    // console.log("attack left");
+    if (window.sprayIMG > 0) {
 
-    this.bullet.setVisible(true);
-    this.bullet.body.setEnable(true);
+      this.ShootSnd = this.sound.add("shootAUD").setVolume(0.5);
+      // play the sound
+      this.ShootSnd.play()
 
-	  // speed of the bullet
-    this.bullet.body.setVelocityX(-500);
+      this.bullet.x = this.player.x;
+      this.bullet.y = this.player.y;
+
+      this.bullet.setVisible(true);
+      this.bullet.body.setEnable(true);
+
+      // speed of the bullet
+      this.bullet.body.setVelocityX(-500);
+    }
   }
 
   attackRight() {
-    
-    console.log("attack right");
 
-    this.bullet.x = this.player.x;
-    this.bullet.y = this.player.y;
+    // console.log("attack right");
+    if (window.sprayIMG > 0) {
 
-    this.bullet.setVisible(true);
-    this.bullet.body.setEnable(true);
+      this.ShootSnd = this.sound.add("shootAUD").setVolume(0.5);
+      // play the sound
+      this.ShootSnd.play()
 
-	  // speed of the bullet
-    this.bullet.body.setVelocityX(500);
+      this.bullet.x = this.player.x;
+      this.bullet.y = this.player.y;
+
+      this.bullet.setVisible(true);
+      this.bullet.body.setEnable(true);
+
+      // speed of the bullet
+      this.bullet.body.setVelocityX(500);
+    }
   }
 
 } //end of world lv2

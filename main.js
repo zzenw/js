@@ -9,57 +9,36 @@ class main extends Phaser.Scene {
     }
 
     preload() {
+        this.load.image("introIMG", "assets/Pg_intro.png");
+    
+      } //end of preload
+    
+    
+      create() {
+        this.scene.bringToTop("main")
+        // console.log('*** main scene');
 
-        // Preload all the assets here
-
-        // Preload any images here
-
-        // Preload any sound and music here
-        // this.load.audio('ping', 'assets/ping.mp3');
-        // this.load.audio('bgMusic', 'assets/bgMusic.mp3');
-    }
-
-    create() {
-
-        console.log('*** main scene');
-
-        // Add any sound and music here
-        // ( 0 = mute to 1 is loudest )
-        //this.music = this.sound.add('bgMusic').setVolume(0.3) // 10% volume
-
-        //this.music.play()
-        //window.music = this.music
-
-
+        window.music.setVolume(0.09);
+    
         // Add image and detect spacebar keypress
-        //this.add.image(0, 0, 'main').setOrigin(0, 0);
-
+        this.add.image(0, 0, "introIMG").setOrigin(0, 0);
+    
         // Check for spacebar or any key here
-        var spaceDown = this.input.keyboard.addKey('SPACE');
+        var enterDown = this.input.keyboard.addKey("ENTER");
+    
+        // On spacebar event, call the world scene
+        enterDown.on("down", function () {
+          // console.log("Jump to lv1 scene");
+        //   window.lifeIMG = 3;
+        //   window.lightIMG = 0;
+        //   window.weaponIMG = 0;
+        //   window.sprayIMG = 0;
+    
+          this.scene.start("storyline_1");
+        },
+        this
+        );
+      } //end of create
+    
 
-        // On spacebar event, call the world scene        
-        spaceDown.on('down', function () {
-            console.log('Jump to room scene');
-
-            this.scene.start('room',
-                // Optional parameters
-                {
-
-                }
-            );
-        }, this);
-
-
-        // Add any text in the main page
-        this.add.text(90, 600, 'Press spacebar to continue', {
-            font: '30px Courier',
-            fill: '#FFFFFF'
-        });
-
-
-        // Create all the game animations here
-
-    }
-
-
-}
+}// end of main

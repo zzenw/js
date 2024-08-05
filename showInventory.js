@@ -23,11 +23,11 @@ class showInventory extends Phaser.Scene {
     create() {
 
         //Place hearts at the top screen
-        console.log("***showInventory");
+        // console.log("***showInventory");
         this.scene.bringToTop("showInventory");
 
         //black bar
-        var rect = new Phaser.Geom.Rectangle(29, 10, 400, 50);
+        var rect = new Phaser.Geom.Rectangle(0, 0, 970, 65);
         var graphics = this.add.graphics({ fillStyle: { color: '#F2B600' } });
         graphics.fillRectShape(rect).setScrollFactor('0').setAlpha(0.6);
 
@@ -36,24 +36,22 @@ class showInventory extends Phaser.Scene {
         this.lifeIMG2 = this.add.image(150, 41, 'lifeIMG').setScrollFactor(0).setVisible(false).setScale(1);
         this.lifeIMG3 = this.add.image(200, 41, 'lifeIMG').setScrollFactor(0).setVisible(false).setScale(1);
 
-        this.lightIMG = this.add.image(325, 39, 'lightIMG').setScrollFactor(0).setVisible(true);
-        this.sprayIMG = this.add.image(325, 39, 'sprayIMG').setScrollFactor(0).setVisible(true);
-        this.weaponIMG = this.add.image(325, 39, 'weaponIMG').setScrollFactor(0).setVisible(true);
+        this.lightIMG = this.add.image(670, 39, 'lightIMG').setScrollFactor(0).setVisible(true);
+        this.sprayIMG = this.add.image(770, 39, 'sprayIMG').setScrollFactor(0).setVisible(true);
+        this.weaponIMG = this.add.image(870, 39, 'weaponIMG').setScrollFactor(0).setVisible(true);
 
         // Recv an event, call the method
         this.events.on('inventory', this.updateScreen, this)
 
         //Setup key
-        this.lightIMGNum = this.add.text(360, 23, window.lightIMG, { font: '25px AnyTakers-Regular', fill: '#FFFFFF' }).setScrollFactor(0);
-        this.sprayIMGNum = this.add.text(360, 23, window.sprayIMG, { font: '25px AnyTakers-Regular', fill: '#FFFFFF' }).setScrollFactor(0);
-        this.weaponIMGNum = this.add.text(360, 23, window.weaponIMG, { font: '25px AnyTakers-Regular', fill: '#FFFFFF' }).setScrollFactor(0);
-
-        this.add.text(250, 18, '|', { font: '35px Courier', fill: '#F2B600' }).setScrollFactor(0);
+        this.lightIMGNum = this.add.text(700, 23, window.lightIMG, { font: '25px AnyTakers-Regular', fill: '#FFFFFF' }).setScrollFactor(0);
+        this.sprayIMGNum = this.add.text(800, 23, window.sprayIMG, { font: '25px AnyTakers-Regular', fill: '#FFFFFF' }).setScrollFactor(0);
+        this.weaponIMGNum = this.add.text(900, 23, window.weaponIMG, { font: '25px AnyTakers-Regular', fill: '#FFFFFF' }).setScrollFactor(0);
 
     } //end of create
 
     updateScreen(data) {
-        console.log('Received event inventory', data);
+        // console.log('Received event inventory', data);
 
         this.lightIMGNum.setText(data.lightIMG);
         this.sprayIMGNum.setText(data.sprayIMG);
