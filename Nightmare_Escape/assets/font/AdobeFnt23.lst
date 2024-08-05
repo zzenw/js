@@ -1,0 +1,85 @@
+%!Adobe-FontList 1.23
+%Locale:0x409
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:AnyTakers-Regular
+FamilyName:Any Takers
+StyleName:Regular
+FullName:Any Takers Regular
+MenuName:Any Takers
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\steph\OneDrive\Documents\MA1\Nightmare_Escape\assets\Font\AnyTakers-Regular.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:152064
+FileModTime:1716768397
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Any Takers Regular
+NameArray:0,Win,1,Any Takers
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:AnyTakers-Regular
+FamilyName:Any Takers
+StyleName:Regular
+FullName:Any Takers Regular
+MenuName:Any Takers
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\steph\OneDrive\Documents\MA1\Nightmare_Escape\assets\Font\AnyTakers-Regular.ttf
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:232520
+FileModTime:1716768397
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Any Takers Regular
+NameArray:0,Win,1,Any Takers
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:C:\Users\steph\OneDrive\Documents\MA1\Nightmare_Escape\assets\Font\Read_Me.txt
+FileModTime:1716768397
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:VCROSDMono
+FamilyName:VCR OSD Mono
+StyleName:Regular
+FullName:VCR OSD Mono
+MenuName:VCR OSD Mono
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\steph\OneDrive\Documents\MA1\Nightmare_Escape\assets\Font\VCR_OSD_MONO_1.001.ttf
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:75864
+FileModTime:1716767991
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,18,VCR OSD Mono
+NameArray:0,Mac,4,VCR OSD Mono
+NameArray:0,Win,1,VCR OSD Mono
+%EndFont
+
